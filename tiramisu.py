@@ -1,4 +1,5 @@
 import requests
+import sys
 from flask import Flask
 
 app = Flask(__name__)
@@ -10,15 +11,18 @@ def hello_world():
     flight_data = r.json()
     flights = flight_data['results']
     flight_objects = {}
+    min_flight = Flight(flights[0]['departure_date'], flights[0]['price'], flights[0]['destination'], flights[0]['airline'], flights[0]['return_date'])
+
     for flight in flights:
         value = flight['destination']
         temp_flight = Flight(flight['departure_date'], flight['price'], flight['destination'], flight['airline'],
                              flight['return_date'])
+
         if flight['destination'] in flight_objects.keys():
             flight_objects[value].append(temp_flight)
         else:
             flight_objects[value] = [temp_flight]
-    return 'Hello World'
+    return min_flight.__str__()
 
 class Flight:
   def __init__(self, departure_date, price, destination, airline, return_date):
@@ -28,6 +32,8 @@ class Flight:
        self.airline = airline
        self.return_date = return_date
 
+  def __str__(self):
+      return 'Destination: ' + self.destination + '<br/>Departure Date: ' + self.departure_date + '<br/>Return Date: ' + self.return_date + '<br/>Airline: ' + self.airline + '<br/>Price: ' + self.price
 
 if __name__ == '__main__':
    app.run()
