@@ -33,8 +33,24 @@ class Hotel:
         self.rooms = rooms
 
     def __str__(self):
+        room_descriptions = ""
+        for room in self.rooms:
+            room_descriptions += room['booking_code'] + ": "
+            for description in room['descriptions']:
+                room_descriptions += description + ", "
+            room_descriptions += "<br/>"
+
+        hotel_amenities = ""
+        for amenity in self.amenities:
+            hotel_amenities += amenity['description'] + ", "
+
+        address_full = ""
+        for key in self.address.keys():
+            address_full += self.address[key] + ", "
+
+
         return 'Property Name: ' + self.property_name \
-               + '<br/>Address: ' + self.address \
-               + '<br/>Total Price: ' + self.total_price \
-               + '<br/>Amenities: ' + self.amenities \
-               + '<br/>rooms: ' + self.rooms
+            + '<br/>Address: ' + address_full \
+            + '<br/>Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] \
+            +  '<br/>' + room_descriptions \
+            + '<br/>Amenities:<br/>' + hotel_amenities
