@@ -11,11 +11,14 @@ def hello_world():
     flights = flight_data['results']
     flight_objects = {}
     for flight in flights:
-        if flights['destination'] in flight_objects.keys():
-            flight_objects[flights['destination']].append(flight(flights['departure_date'], flights['price'], flights['destination'], flights['airline'], flights['return_date']))
+        value = flight['destination']
+        temp_flight = Flight(flight['departure_date'], flight['price'], flight['destination'], flight['airline'],
+                             flight['return_date'])
+        if flight['destination'] in flight_objects.keys():
+            flight_objects[value].append(temp_flight)
         else:
-            flight_objects[flights['destination']] = [flight(flights['departure_date'], flights['price'], flights['destination'], flights['airline'], flights['return_date'])]
-    return r.text
+            flight_objects[value] = [temp_flight]
+    return 'Hello World'
 
 class Flight:
   def __init__(self, departure_date, price, destination, airline, return_date):
@@ -27,4 +30,4 @@ class Flight:
 
 
 if __name__ == '__main__':
-    app.run()
+   app.run()
