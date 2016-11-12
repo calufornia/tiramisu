@@ -21,8 +21,8 @@ def car_slice(**kwargs):
 
             else:
                 car_objects[acriss] = temp_car
-
-    return car_objects
+    min_car = car_objects[0][0]
+    return min_car
 
 
 class Car:
@@ -39,3 +39,17 @@ class Car:
         self.provider = provider
         self.location = location
         self.address = address
+
+    def __str__(self):
+        return 'Transmission: ' + self.transmission\
+            + '<br/>Fuel: ' + self.fuel\
+            + '<br/>Air_Conditioning: ' + self.air_conditioning\
+            + '<br/>Category: ' + self.category\
+            + '<br/>Type: ' + self.type\
+            + '<br/>Rates: ' + self.rates\
+            + '<br/>Images: ' + self.images\
+            + '<br/>Estimated_total: ' + self.estimated_total\
+            + '<br/>Provider: ' + self.provider\
+            + '<br/>Location: ' + self.location\
+            + '<br/>Address: ' + self.address
+        
