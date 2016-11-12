@@ -36,13 +36,16 @@ class Hotel:
         room_descriptions = ""
         for room in self.rooms:
             room_descriptions += room['booking_code'] + ": "
-            for description in room['descriptions']:
+
+            for description in room['description']:
+
                 room_descriptions += description + ", "
             room_descriptions += "<br/>"
 
         hotel_amenities = ""
         for amenity in self.amenities:
             hotel_amenities += amenity['description'] + ", "
+
 
         address_full = ""
         for key in self.address.keys():
@@ -54,3 +57,5 @@ class Hotel:
             + '<br/>Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] \
             +  '<br/>' + room_descriptions \
             + '<br/>Amenities:<br/>' + hotel_amenities
+
+
