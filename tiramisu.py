@@ -33,7 +33,7 @@ def index():
         print("Departure is", form.departure)
         print("Arrival is", form.arrival)
         #call to query
-        return str("Search results:")+ "<br/>" + flight_slice(**kwargs)
+        return str("Search results:") + "<br/>" + flight_slice(**kwargs)
     else:
         return render_template("index.html",form=form)
 

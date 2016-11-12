@@ -1,4 +1,7 @@
 from utils import *
+from hotels import *
+from cars import *
+
 
 
 def flight_slice(**kwargs):
@@ -18,7 +21,12 @@ def flight_slice(**kwargs):
         else:
             flight_objects[value] = [temp_flight]
     plan = min_flight.__str__()
-    plan += car_slice
+
+    car_kwargs = {}
+    car_kwargs['location'] = min_flight.destination
+    car_kwargs['pick_up'] = min_flight.departure_date
+    car_kwargs['drop_off'] = min_flight.return_date
+    plan += car_slice(**car_kwargs)
     return
 
 
