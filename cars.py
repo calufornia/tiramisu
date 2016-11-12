@@ -2,12 +2,14 @@ import requests
 import sys
 from flask import Flask
 
+def car_slice(**kwargs):
+    request_string = "https://api.sandbox.amadeus.com/v1.2/cars/search-airport?"
 
-def car_slice():
-    r = requests.get(
-        "https://api.sandbox.amadeus.com/v1.2/cars/search-airport?location=NCE&pick_up=2016-11-18&drop_off=2016-11-20"
-        "&lang=EN&currency=USD&provider=ZI&rate_class=ALL&rate_plan=DAILY&rate_filter=ESTIMATED"
-        "&apikey=NEeYQKLjtZyWXlcUBor348kuPY5C3N8K")
+    for key in kwargs:
+        request_string += key + "=" + kwargs[key] + "&"
+
+    request_string += "apikey=NEeYQKLjtZyWXlcUBor348kuPY5C3N8K"
+    r = requests.get(request_string)
     car_data = r.json()
     providers = car_data['results']
     car_objects = {}
@@ -26,7 +28,7 @@ def car_slice():
             else:
                 car_objects[acriss].append(temp_car)
 
-
+    return car_objects
 
 class Car:
     def __init__(self, transmission, fuel, air_conditioning, category, type, rates, images, estimated_total, provider,
