@@ -3,9 +3,9 @@ from utils import *
 
 def flight_slice(**kwargs):
 
-    basename = "https://api.sandbox.amadeus.com/v1.2/cars/inspiration-search?"
+    basename = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?"
 
-    flights = get_json(basename, kwargs)
+    flights = get_json(basename, **kwargs)
     flight_objects = {}
     min_flight = Flight(flights[0]['departure_date'], flights[0]['price'], flights[0]['destination'], flights[0]['airline'], flights[0]['return_date'])
 
@@ -17,7 +17,9 @@ def flight_slice(**kwargs):
             flight_objects[value].append(temp_flight)
         else:
             flight_objects[value] = [temp_flight]
-    return min_flight.__str__()
+    plan = min_flight.__str__()
+    plan += car_slice
+    return
 
 
 class Flight:
