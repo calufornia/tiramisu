@@ -5,8 +5,8 @@ from flask import Flask
 
 def car_slice():
     r = requests.get(
-        "https://api.sandbox.amadeus.com/v1.2/cars/search-airport?location=NCE&pick_up=2016-11-07&drop_off=2016-11-0"
-        "8&lang=EN&currency=USD&provider=ZI&rate_class=ALL&rate_plan=DAILY&rate_filter=ESTIMATED"
+        "https://api.sandbox.amadeus.com/v1.2/cars/search-airport?location=NCE&pick_up=2016-11-18&drop_off=2016-11-20"
+        "&lang=EN&currency=USD&provider=ZI&rate_class=ALL&rate_plan=DAILY&rate_filter=ESTIMATED"
         "&apikey=NEeYQKLjtZyWXlcUBor348kuPY5C3N8K")
     car_data = r.json()
     providers = car_data['results']

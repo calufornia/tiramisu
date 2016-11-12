@@ -8,8 +8,6 @@ def hello_world():
     r = requests.get("https://api.sandbox.amadeus.com/v1.2/hotels/search-circle?apikey=NEeYQKLjtZyWXlcUBor348kuPY5C3N8K&latitude=36.0857&longitude=-115.1541&radius=50&check_in=2016-11-15&check_out=2016-11-17")
     hotels_data = r.json()
     hotels_options = hotels_data['results']
-    min_hotel =
-    for hotel in hotels_options:
 
 
 class Hotel:
