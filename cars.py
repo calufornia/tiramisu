@@ -19,9 +19,9 @@ def car_slice(**kwargs):
         for car in provider['cars']:
             acriss = car['vehicle_info']['acriss_code']
             temp_car = Car(car['vehicle_info']['transmission'],
-                    car['vehicle_info']['fuel'], car['vehicle_info']['air_conditioning'], car['vehicle_info']['category'],
+                    car['vehicle_info']['fuel'], car['vehicle_info']['category'],
                     car['vehicle_info']['type'], car['rates'], car['estimated_total'], provider['provider'],
-                           provider['address'])
+                    provider['address'])
 
             if acriss in car_objects.keys():
                 car_objects[acriss].append(temp_car)
@@ -43,12 +43,26 @@ class Car:
         self.address = address
 
     def __str__(self):
-        return 'Transmission: ' + self.transmission\
+        address_full = ""
+        for key in self.address.keys():
+            address_full += self.address[key] + ", "
+
+        provider_full = ""
+        for key in self.provider.keys():
+            provider_full += key + ': ' + self.provider[key]
+
+        rates_full = ""
+        for rate in self.rates:
+            rates_full +=   'Type: ' + rate['type'] + ', '
+            rates_full +=   'Price: ' + rate['price']['amount'] + ' ' + rate['price']['currency']
+
+        return 'Provider: ' + provider_full \
+            + '<br/>Address: ' + address_full\
+            + '<br/>Transmission: ' + self.transmission\
             + '<br/>Fuel: ' + self.fuel\
             + '<br/>Category: ' + self.category\
             + '<br/>Type: ' + self.type\
-            + '<br/>Rates: ' + self.rates\
-            + '<br/>Estimated_total: ' + self.estimated_total\
-            + '<br/>Provider: ' + self.provider\
-            + '<br/>Address: ' + self.address
+            + '<br/>Rates: ' + rates_full\
+            + '<br/>Estimated_total: ' + self.estimated_total \
+
         
