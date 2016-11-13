@@ -24,7 +24,9 @@ def index():
 
     if request.method=='POST':
         kwargs = {'origin': form.origin._value(), 'departure_date': form.departure.data.strftime('%Y-%m-%d'), 'return_date': form.arrival.data.strftime('%Y-%m-%d')}
-        return str("Search results:") + "<br/>" + flight_slice(**kwargs)
+        results = flight_slice(**kwargs)
+        print(results)
+        return str("Search results:") + "<br/>" + results
     else:
         return render_template("index.html",form=form)
 

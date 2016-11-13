@@ -9,12 +9,12 @@ def car_slice(**kwargs):
     car_objects = {}
     n = 5
 
-    min_provider_info = providers[0]
-    min_car_info = min_provider_info['cars'][0]
-    min_car = Car(min_car_info['vehicle_info']['transmission'],
-                    min_car_info['vehicle_info']['fuel'], min_car_info['vehicle_info']['category'],
-                    min_car_info['vehicle_info']['type'], min_car_info['rates'], min_car_info['estimated_total'], min_provider_info['provider'],
-                           min_provider_info['address'])
+    # min_provider_info = providers[0]
+    # min_car_info = min_provider_info['cars'][0]
+    # min_car = Car(min_car_info['vehicle_info']['transmission'],
+    #                 min_car_info['vehicle_info']['fuel'], min_car_info['vehicle_info']['category'],
+    #                 min_car_info['vehicle_info']['type'], min_car_info['rates'], min_car_info['estimated_total'], min_provider_info['provider'],
+    #                        min_provider_info['address'])
 
     i = 0
     for provider in providers:
@@ -38,7 +38,8 @@ def car_slice(**kwargs):
             else:
                 car_objects[acriss] = [temp_car]
                 i += 1
-    return car_objects.__str__()
+    return car_objects
+
 
 class Car:
     def __init__(self, transmission, fuel, category, type, rates, estimated_total, provider, address):
