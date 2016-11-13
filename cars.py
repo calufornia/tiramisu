@@ -38,11 +38,7 @@ def car_slice(**kwargs):
             else:
                 car_objects[acriss] = [temp_car]
                 i += 1
-    return car_objects
-
-#list_cars takes in argument n and returns the n least priced cars
-def list_cars(n, destination):
-
+    return car_objects.__str__()
 
 class Car:
     def __init__(self, transmission, fuel, category, type, rates, estimated_total, provider, address):
