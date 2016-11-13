@@ -31,7 +31,6 @@
         {% from "_formhelpers.html" import render_field %}
         <form method=post action="/">
             <dl>
-            {{ render_field(form.name) }}
             {{ render_field(form.origin) }}
             {{ render_field(form.departure) }}
             {{ render_field(form.arrival) }}

@@ -41,8 +41,8 @@ class Flight:
         self.return_date = return_date
 
     def __str__(self):
-        return 'Destination: ' + self.destination \
-             + ' Departure Date: ' + self.departure_date \
-             + ' Return Date: ' + self.return_date \
-             + ' Airline: ' + self.airline \
+        return 'Destination: ' + self.destination + "; "\
+             + ' Departure Date: ' + self.departure_date + "; " \
+             + ' Return Date: ' + self.return_date + "; "\
+             + ' Airline: ' + self.airline + "; "\
              + ' Price: ' + self.price

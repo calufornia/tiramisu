@@ -10,7 +10,6 @@ from flask_wtf.csrf import CsrfProtect
 class APIRequestForm(Form):
     SECRET_KEY= "YOLOSWAG"
     origin = StringField('Origin',validators = [DataRequired()])
-    name = StringField('Name', validators=[DataRequired()])
     departure = DateField('Departure',validators=[DataRequired()],format='%Y-%m-%d')
     arrival = DateField('Arrival',validators=[DataRequired()],format='%Y-%m-%d')
     unique = BooleanField('Unique',validators=[DataRequired()])
