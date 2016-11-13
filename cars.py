@@ -24,7 +24,7 @@ def car_slice(**kwargs):
                     provider['address'])]
 
             i += 1
-            
+
     return car_objects
 
 
