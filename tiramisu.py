@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_wtf import Form
-from wtforms import StringField, PasswordField
+from wtforms import StringField, BooleanField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired
 from flask import render_template
@@ -12,6 +12,8 @@ class APIRequestForm(Form):
     origin = StringField('Origin',validators = [DataRequired()])
     departure = DateField('Departure',validators=[DataRequired()],format='%Y-%m-%d')
     arrival = DateField('Arrival',validators=[DataRequired()],format='%Y-%m-%d')
+    unique = BooleanField('Unique',validators=[DataRequired()])
+
 
 
 app = Flask(__name__)
@@ -23,8 +25,9 @@ def index():
     form = APIRequestForm()
 
     if request.method=='POST':
+
         kwargs = {'origin': form.origin._value(), 'departure_date': form.departure.data.strftime('%Y-%m-%d'), 'return_date': form.arrival.data.strftime('%Y-%m-%d')}
-        results = flight_slice(**kwargs)
+        results = flight_slice(False, **kwargs)
         for flight in results:
             print(flight)
         return render_template("results.html",results=results)
