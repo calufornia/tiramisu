@@ -1,4 +1,3 @@
-from hotels import *
 from cars import *
 
 
