@@ -7,18 +7,11 @@ def flight_slice(**kwargs):
     basename = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?"
 
     flights = get_json(basename, **kwargs)
-    flight_objects = {}
+    flight_objects = []
     num_results = 5
 
     for flight in flights:
-        value = flight['destination']
-        temp_flight = Flight(flight['departure_date'], flight['price'], flight['destination'], flight['airline'], flight['return_date'])
-
-        if flight['destination'] in flight_objects.keys():
-            flight_objects[value].append(temp_flight)
-        else:
-            flight_objects[value] = [temp_flight]
-
+        flight_objects += Flight(flight['departure_date'], flight['price'], flight['destination'], flight['airline'], flight['return_date'])
         if len(flight_objects >= num_results):
             break
 
