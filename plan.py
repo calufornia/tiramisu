@@ -3,3 +3,4 @@ class Plan:
         self.flight = flight
         self.hotels = hotels
         self.cars = cars
+

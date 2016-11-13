@@ -93,46 +93,58 @@
 <div id="Plan1" class="tabcontent">
   <h3>Plan 1</h3>
   <p>This is plan 1 <br/>
-      {% for flight in results[0].flights%}
-      Flight: {{flight}} <br/>
-      {% endfor %}
+      {% if plan1.flight %}
+      Flight: {{plan1.flight}} <br/>
+      Hotels: {{plan1.hotels}} <br/>
+      Cars: {{plan1.cars}}
+      {% endif %}
   </p>
-
 </div>
-    <div id="Plan2" class="tabcontent">
+
+<div id="Plan2" class="tabcontent">
   <h3>Plan 2</h3>
-  <p>This is plan 1 <br/>
-      {% for flight in results[0].flights%}
-      Flight: {{flight}} <br/>
-      {% endfor %}
-  </p>
-</div>
-    <div id="Plan3" class="tabcontent">
-  <h3>Plan 3</h3>
-  <p>This is plan 1 <br/>
-      {% for flight in results[0].flights%}
-      Flight: {{flight}} <br/>
-      {% endfor %}
-  </p>
-</div>
-    <div id="Plan4" class="tabcontent">
-  <h3>Plan 4</h3>
-  <p>This is plan 1 <br/>
-      {% for flight in results[0].flights%}
-      Flight: {{flight}} <br/>
-      {% endfor %}
-  </p>
-</div>
-    <div id="Plan5" class="tabcontent">
-  <h3>Plan 5</h3>
-  <p>This is plan 1 <br/>
-      {% for flight in results[0].flights%}
-      Flight: {{flight}} <br/>
-      {% endfor %}
+  <p>This is plan 2 <br/>
+      {% if plan2.flight %}
+      Flight: {{plan2.flight}} <br/>
+      Hotels: {{plan2.hotels}} <br/>
+      Cars: {{plan2.cars}}
+      {% endif %}
   </p>
 </div>
 
+<div id="Plan3" class="tabcontent">
+  <h3>Plan 3</h3>
+  <p>This is plan 3 <br/>
+      {% if plan3.flight %}
+      Flight: {{plan3.flight}} <br/>
+      Hotels: {{plan3.hotels}} <br/>
+      Cars: {{plan3.cars}}
+      {% endif %}
+  </p>
 </div>
+
+<div id="Plan4" class="tabcontent">
+  <h3>Plan 4</h3>
+  <p>This is plan 4 <br/>
+      {% if plan4.flight %}
+      Flight: {{plan4.flight}} <br/>
+      Hotels: {{plan4.hotels}} <br/>
+      Cars: {{plan4.cars}}
+      {% endif %}
+  </p>
+</div>
+
+<div id="Plan5" class="tabcontent">
+  <h3>Plan 5</h3>
+  <p>This is plan 5 <br/>
+      {% if plan5.flight %}
+      Flight: {{plan5.flight}} <br/>
+      Hotels: {{plan5.hotels}} <br/>
+      Cars: {{plan5.cars}}
+      {% endif %}
+  </p>
+</div>
+
 
 
 </body>

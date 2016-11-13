@@ -1,7 +1,6 @@
 from cars import *
 from hotels import *
 from plan import *
-from sets import Set
 
 
 def flight_slice(uflight_toggle, **kwargs):
