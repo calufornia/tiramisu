@@ -35,7 +35,6 @@ class Hotel:
             room_descriptions += room['booking_code'] + ": "
         for description in room['descriptions']:
             room_descriptions += description + ", "
-        room_descriptions += " "
 
         hotel_amenities = ""
         for amenity in self.amenities:

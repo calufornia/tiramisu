@@ -47,7 +47,7 @@ class Car:
 
         provider_full = ""
         for key in self.provider.keys():
-            provider_full += '<br/>' + key + ': ' + self.provider[key]
+            provider_full += key + ': ' + self.provider[key]
 
         rates_full = ""
         for rate in self.rates:
