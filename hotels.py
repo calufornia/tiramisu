@@ -6,19 +6,24 @@ def hotel_slice(**kwargs):
     basename = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=NEeYQKLjtZyWXlcUBor348kuPY5C3N8K&location=BOS&check_in=2016-11-15&check_out=2016-11-17&radius=50"
 
     hotels = get_json(basename, kwargs)
-
-    min_hotel = Hotel(hotels[0]['property_name'], hotels[0]['address'], hotels[0]['total_price'], hotels[0]['min_daily_rate'], hotels[0]['amenities'], hotels[0]['awards'], hotels[0]['images'], hotels[0]['rooms'])
+    n = 5
+    # min_hotel = Hotel(hotels[0]['property_name'], hotels[0]['address'], hotels[0]['total_price'], hotels[0]['min_daily_rate'], hotels[0]['amenities'], hotels[0]['awards'], hotels[0]['images'], hotels[0]['rooms'])
     hotel_objects = {}
+    i = 0
     for hotel in hotels:
+        if i == n:
+            break
         key = hotel['property_name']
 
         temp_hotel = Hotel(hotel['property_name'], hotel['address'], hotel['total_price'], hotel['min_daily_rate'], hotel['amenities'], hotel['awards'], hotel['images'], hotel['rooms'])
 
         if hotel['property_name'] in hotel_objects.keys():
             hotel_objects[key].append(temp_hotel)
+            i += 1
         else:
             hotel_objects[key] = [temp_hotel]
-    return min_hotel.__str__()
+            i += 1
+    return hotel_objects
 
 
 class Hotel:
