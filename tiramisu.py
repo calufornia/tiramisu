@@ -1,5 +1,3 @@
-import requests
-import sys
 from flask import Flask, request
 from flask_wtf import Form
 from wtforms import StringField, PasswordField
@@ -25,15 +23,10 @@ def index():
     form = APIRequestForm()
 
     if request.method=='POST':
-        kwargs = {}
-        kwargs['origin'] = form.origin._value()
-        kwargs['departure_date'] = form.departure.data.strftime('%Y-%m-%d')
-        kwargs['return_date'] = form.arrival.data.strftime('%Y-%m-%d')
-        print("Origin is", form.origin)
-        print("Departure is", form.departure)
-        print("Arrival is", form.arrival)
-        #call to query
-        return str("Search results:") + "<br/>" + flight_slice(**kwargs)
+        kwargs = {'origin': form.origin._value(), 'departure_date': form.departure.data.strftime('%Y-%m-%d'), 'return_date': form.arrival.data.strftime('%Y-%m-%d')}
+        results = flight_slice(**kwargs)
+        print(results)
+        return str("Search results:") + "<br/>" + results
     else:
         return render_template("index.html",form=form)
 

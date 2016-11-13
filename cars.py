@@ -41,7 +41,6 @@ def car_slice(**kwargs):
     return car_objects
 
 
-
 class Car:
     def __init__(self, transmission, fuel, category, type, rates, estimated_total, provider, address):
         self.transmission = transmission
