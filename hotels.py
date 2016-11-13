@@ -50,10 +50,10 @@ class Hotel:
             awards_all += award['rating'] + " by " + award['provider'] + "<br/>"
 
         return 'Property Name: ' + self.property_name \
-           + '<br/>Address: ' + address_full \
-           + '<br/>Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] \
-           + '<br/>' + room_descriptions \
-           + '<br/>Amenities:<br/>' + hotel_amenities \
-           + '<br/>Awards: ' + awards_all
+           + ' Address: ' + address_full \
+           + ' Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] \
+           + ' ' + room_descriptions \
+           + ' Amenities: ' + hotel_amenities \
+           + ' Awards: ' + awards_all
 
 

@@ -54,12 +54,12 @@ class Car:
             rates_full +=   'Type: ' + rate['type'] + ', '
             rates_full +=   'Price: ' + rate['price']['amount'] + ' ' + rate['price']['currency']
 
-        return '<br/>Provider: ' + provider_full \
-            + '<br/>Address: ' + address_full\
-            + '<br/>Acriss: ' + self.acriss\
-            + '<br/>Transmission: ' + self.transmission\
-            + '<br/>Fuel: ' + self.fuel\
-            + '<br/>Category: ' + self.category\
-            + '<br/>Type: ' + self.type\
-            + '<br/>Rates: ' + rates_full\
-            + '<br/>Estimated_total:\t' + self.estimated_total['amount'] + " " + self.estimated_total['currency']
+        return ' Provider: ' + provider_full \
+            + ' Address: ' + address_full\
+            + ' Acriss: ' + self.acriss\
+            + ' Transmission: ' + self.transmission\
+            + ' Fuel: ' + self.fuel\
+            + ' Category: ' + self.category\
+            + ' Type: ' + self.type\
+            + ' Rates: ' + rates_full\
+            + ' Estimated_total:\t' + self.estimated_total['amount'] + " " + self.estimated_total['currency']
