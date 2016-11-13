@@ -11,7 +11,7 @@ def car_slice(**kwargs):
     min_provider_info = providers[0]
     min_car_info = min_provider_info['cars'][0]
     min_car = Car(min_car_info['vehicle_info']['transmission'],
-                    min_car_info['vehicle_info']['fuel'], min_car_info['vehicle_info']['air_conditioning'], min_car_info['vehicle_info']['category'],
+                    min_car_info['vehicle_info']['fuel'], min_car_info['vehicle_info']['category'],
                     min_car_info['vehicle_info']['type'], min_car_info['rates'], min_car_info['estimated_total'], min_provider_info['provider'],
                            min_provider_info['address'])
 
