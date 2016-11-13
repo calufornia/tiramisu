@@ -3,9 +3,8 @@ from utils import *
 
 def hotel_slice(**kwargs):
 
-    basename = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=NEeYQKLjtZyWXlcUBor348kuPY5C3N8K&location=BOS&check_in=2016-11-15&check_out=2016-11-17&radius=50"
-
-    hotels = get_json(basename, kwargs)
+    basename = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?"
+    hotels = get_json(basename, **kwargs)
 
     min_hotel = Hotel(hotels[0]['property_name'], hotels[0]['address'], hotels[0]['total_price'], hotels[0]['min_daily_rate'], hotels[0]['amenities'], hotels[0]['awards'], hotels[0]['images'], hotels[0]['rooms'])
     hotel_objects = {}
