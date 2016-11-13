@@ -11,8 +11,8 @@ def flight_slice(**kwargs):
     num_results = 5
 
     for flight in flights:
-        flight_objects += Flight(flight['departure_date'], flight['price'], flight['destination'], flight['airline'], flight['return_date'])
-        if len(flight_objects >= num_results):
+        flight_objects += [Flight(flight['departure_date'], flight['price'], flight['destination'], flight['airline'], flight['return_date'])]
+        if len(flight_objects) >= num_results:
             break
 
     return flight_objects
