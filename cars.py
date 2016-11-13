@@ -11,7 +11,7 @@ def car_slice(**kwargs):
     min_provider_info = providers[0]
     min_car_info = min_provider_info['cars'][0]
     min_car = Car(min_car_info['vehicle_info']['transmission'],
-                    min_car_info['vehicle_info']['fuel'], min_car_info['vehicle_info']['air_conditioning'], min_car_info['vehicle_info']['category'],
+                    min_car_info['vehicle_info']['fuel'], min_car_info['vehicle_info']['category'],
                     min_car_info['vehicle_info']['type'], min_car_info['rates'], min_car_info['estimated_total'], min_provider_info['provider'],
                            min_provider_info['address'])
 
@@ -49,20 +49,18 @@ class Car:
 
         provider_full = ""
         for key in self.provider.keys():
-            provider_full += key + ': ' + self.provider[key]
+            provider_full += '<br/>' + key + ': ' + self.provider[key]
 
         rates_full = ""
         for rate in self.rates:
             rates_full +=   'Type: ' + rate['type'] + ', '
             rates_full +=   'Price: ' + rate['price']['amount'] + ' ' + rate['price']['currency']
 
-        return 'Provider: ' + provider_full \
+        return '<br/>Provider: ' + provider_full \
             + '<br/>Address: ' + address_full\
             + '<br/>Transmission: ' + self.transmission\
             + '<br/>Fuel: ' + self.fuel\
             + '<br/>Category: ' + self.category\
             + '<br/>Type: ' + self.type\
             + '<br/>Rates: ' + rates_full\
-            + '<br/>Estimated_total: ' + self.estimated_total \
-
-        
+            + '<br/>Estimated_total:\t' + self.estimated_total['amount'] + " " + self.estimated_total['currency']
