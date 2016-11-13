@@ -6,37 +6,31 @@ def car_slice(**kwargs):
     basename = "https://api.sandbox.amadeus.com/v1.2/cars/search-airport?"
 
     providers = get_json(basename, **kwargs)
-    car_objects = {}
-    n = 5
-
+    car_objects = []
+    num_results = 5
 
     i = 0
     for provider in providers:
-        if i == n:
+        if i == num_results:
             break
 
         for car in provider['cars']:
-            if i == n:
+            if i == num_results:
                 break
 
-            acriss = car['vehicle_info']['acriss_code']
-            temp_car = Car(car['vehicle_info']['transmission'],
+            car_objects += [Car(car['vehicle_info']['acriss_code'], car['vehicle_info']['transmission'],
                     car['vehicle_info']['fuel'], car['vehicle_info']['category'],
                     car['vehicle_info']['type'], car['rates'], car['estimated_total'], provider['provider'],
-                    provider['address'])
+                    provider['address'])]
 
-            if acriss in car_objects.keys():
-                car_objects[acriss].append(temp_car)
-                i += 1
-
-            else:
-                car_objects[acriss] = [temp_car]
-                i += 1
+            i += 1
+            
     return car_objects
 
 
 class Car:
-    def __init__(self, transmission, fuel, category, type, rates, estimated_total, provider, address):
+    def __init__(self, acriss, transmission, fuel, category, type, rates, estimated_total, provider, address):
+        self.acriss = acriss
         self.transmission = transmission
         self.fuel = fuel
         self.category = category
@@ -62,6 +56,7 @@ class Car:
 
         return '<br/>Provider: ' + provider_full \
             + '<br/>Address: ' + address_full\
+            + '<br/>Acriss: ' + self.acriss\
             + '<br/>Transmission: ' + self.transmission\
             + '<br/>Fuel: ' + self.fuel\
             + '<br/>Category: ' + self.category\

@@ -6,23 +6,15 @@ def hotel_slice(**kwargs):
     basename = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?"
 
     hotels = get_json(basename, **kwargs)
-    n = 5
+    num_results = 5
 
-    hotel_objects = {}
-    i = 0
+    hotel_objects = []
     for hotel in hotels:
-        if i == n:
+
+        hotel_objects += [Hotel(hotel['property_name'], hotel['address'], hotel['total_price'], hotel['min_daily_rate'], hotel['amenities'], hotel['awards'], hotel['images'], hotel['rooms'])]
+        if len(hotel_objects) >= num_results:
             break
-        key = hotel['property_name']
 
-        temp_hotel = Hotel(hotel['property_name'], hotel['address'], hotel['total_price'], hotel['min_daily_rate'], hotel['amenities'], hotel['awards'], hotel['images'], hotel['rooms'])
-
-        if hotel['property_name'] in hotel_objects.keys():
-            hotel_objects[key].append(temp_hotel)
-            i += 1
-        else:
-            hotel_objects[key] = [temp_hotel]
-            i += 1
     return hotel_objects
 
 
