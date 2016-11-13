@@ -27,7 +27,7 @@ def flight_slice(**kwargs):
     car_kwargs['pick_up'] = min_flight.departure_date
     car_kwargs['drop_off'] = min_flight.return_date
     plan += car_slice(**car_kwargs)
-    return
+    return plan
 
 
 class Flight:

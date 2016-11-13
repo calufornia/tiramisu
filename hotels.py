@@ -3,7 +3,7 @@ from utils import *
 
 def hotel_slice(**kwargs):
 
-    basename = "https://api.sandbox.amadeus.com/v1.2/cars/search-circle?"
+    basename = "https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=NEeYQKLjtZyWXlcUBor348kuPY5C3N8K&location=BOS&check_in=2016-11-15&check_out=2016-11-17&radius=50"
 
     hotels = get_json(basename, kwargs)
 
@@ -36,26 +36,27 @@ class Hotel:
         room_descriptions = ""
         for room in self.rooms:
             room_descriptions += room['booking_code'] + ": "
-
-            for description in room['description']:
-
-                room_descriptions += description + ", "
-            room_descriptions += "<br/>"
+        for description in room['descriptions']:
+            room_descriptions += description + ", "
+        room_descriptions += "<br/>"
 
         hotel_amenities = ""
         for amenity in self.amenities:
             hotel_amenities += amenity['description'] + ", "
 
-
         address_full = ""
         for key in self.address.keys():
             address_full += self.address[key] + ", "
 
+        awards_all = ""
+        for award in self.awards:
+            awards_all += award['rating'] + " by " + award['provider'] + "<br/>"
 
         return 'Property Name: ' + self.property_name \
-            + '<br/>Address: ' + address_full \
-            + '<br/>Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] \
-            +  '<br/>' + room_descriptions \
-            + '<br/>Amenities:<br/>' + hotel_amenities
+           + '<br/>Address: ' + address_full \
+           + '<br/>Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] \
+           + '<br/>' + room_descriptions \
+           + '<br/>Amenities:<br/>' + hotel_amenities \
+           + '<br/>Awards: ' + awards_all
 
 
