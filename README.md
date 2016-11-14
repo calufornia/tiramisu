@@ -1,5 +1,5 @@
 # tiramisu
-Tiramisu is a travel app that allows users to plan spontaneous trips. It utilizes various API's of Amadeus's Travel Innovation Sandbox, specifically the Flight Inspiration Search, Hotel Airport Search, and Car Rental Airport Search APIs. Given an origin location and a range of dates, the website will output the five cheapest flights from that start location, and a list of five hotels and rental cars that operate in the destination location.
+Tiramisu is a travel app that allows users to plan spontaneous trips. It utilizes API's from Amadeus's Travel Innovation Sandbox, a suite of REST/JSON APIs. We specifically use the Flight Inspiration Search, Hotel Airport Search, and Car Rental Airport Search APIs. Given an origin location and a range of dates, the website will output the five cheapest flights from that start location, and a list of five hotels and rental cars that operate in the destination location.
 
 To run the app:
 
