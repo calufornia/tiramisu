@@ -47,19 +47,26 @@ class Car:
 
         provider_full = ""
         for key in self.provider.keys():
-            provider_full += '<br/>' + key + ': ' + self.provider[key]
+            provider_full += key + ': ' + self.provider[key]
 
         rates_full = ""
         for rate in self.rates:
             rates_full +=   'Type: ' + rate['type'] + ', '
             rates_full +=   'Price: ' + rate['price']['amount'] + ' ' + rate['price']['currency']
 
-        return ' Provider: ' + provider_full \
-            + ' Address: ' + address_full\
-            + ' Acriss: ' + self.acriss\
-            + ' Transmission: ' + self.transmission\
-            + ' Fuel: ' + self.fuel\
-            + ' Category: ' + self.category\
-            + ' Type: ' + self.type\
-            + ' Rates: ' + rates_full\
-            + ' Estimated_total:\t' + self.estimated_total['amount'] + " " + self.estimated_total['currency']
+        # return ' Provider: ' + provider_full \
+        #     + ' Address: ' + address_full\
+        #     + ' Acriss: ' + self.acriss\
+        #     + ' Transmission: ' + self.transmission\
+        #     + ' Fuel: ' + self.fuel\
+        #     + ' Category: ' + self.category\
+        #     + ' Type: ' + self.type\
+        #     + ' Rates: ' + rates_full\
+        #     + ' Estimated_total:\t' + self.estimated_total['amount'] + " " + self.estimated_total['currency']
+
+        return 'Address: ' + address_full + ', ' \
+               + ' Transmission: ' + self.transmission + ', ' \
+               + ' Category: ' + self.category + ', ' \
+               + ' Type: ' + self.type + ', ' \
+               + ' Rates: ' + rates_full + ', ' \
+               + ' Estimated_total:\t' + self.estimated_total['amount'] + " " + self.estimated_total['currency']

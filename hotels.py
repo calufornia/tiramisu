@@ -35,7 +35,6 @@ class Hotel:
             room_descriptions += room['booking_code'] + ": "
         for description in room['descriptions']:
             room_descriptions += description + ", "
-        room_descriptions += "<br/>"
 
         hotel_amenities = ""
         for amenity in self.amenities:
@@ -47,13 +46,12 @@ class Hotel:
 
         awards_all = ""
         for award in self.awards:
-            awards_all += award['rating'] + " by " + award['provider'] + "<br/>"
+            awards_all += award['rating'] + " by " + award['provider']
 
-        return 'Property Name: ' + self.property_name \
-           + ' Address: ' + address_full \
-           + ' Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] \
-           + ' ' + room_descriptions \
-           + ' Amenities: ' + hotel_amenities \
-           + ' Awards: ' + awards_all
+        return 'Property Name: ' + self.property_name + "; "\
+           + ' Address: ' + address_full + "; "\
+           + ' Total Price: ' + self.total_price['currency'] + " " + self.total_price['amount'] + "; "\
+           + ' Amenities: ' + hotel_amenities
+           # + ' Awards: ' + awards_all
 
 
