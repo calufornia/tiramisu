@@ -1,6 +1,6 @@
 import requests
 
-apikey = "NEeYQKLjtZyWXlcUBor348kuPY5C3N8K"
+apikey = ""
 
 
 def get_json(basename, **kwargs):
